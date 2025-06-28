@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import '../models/character_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../services/favorite_service.dart';
 
 class CharacterDetailScreen extends StatefulWidget {
   final CharacterModel character;
 
-  const CharacterDetailScreen({Key? key, required this.character})
-    : super(key: key);
+  const CharacterDetailScreen({Key? key, required this.character}) : super(key: key);
 
   @override
   State<CharacterDetailScreen> createState() => _CharacterDetailScreenState();
@@ -31,11 +29,8 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
     await FavoriteService().toggleFavorito(widget.character);
     setState(() => _esFavorito = !_esFavorito);
 
-    final mensaje =
-        _esFavorito ? 'Agregado a favoritos' : 'Eliminado de favoritos';
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(mensaje)));
+    final mensaje = _esFavorito ? 'Agregado a favoritos' : 'Eliminado de favoritos';
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(mensaje)));
   }
 
   @override
