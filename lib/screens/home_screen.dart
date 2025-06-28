@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/character_card.dart';
 import '../services/swapi_service.dart';
 import '../models/character_model.dart';
+import 'detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -73,6 +74,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   return ListTile(
                     title: Text(personaje.name),
                     subtitle: Text('Género: ${personaje.gender}'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (_) =>
+                                  CharacterDetailScreen(character: personaje),
+                        ),
+                      );
+                    },
                   );
                 },
               ),
