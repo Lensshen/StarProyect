@@ -15,11 +15,11 @@ class CharacterModel {
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) {
     return CharacterModel(
-      name: json['name'],
-      gender: json['gender'],
-      height: json['height'],
-      mass: json['mass'],
-      birthYear: json['birth_year'],
+      name: json['name'] ?? '',
+      gender: json['gender'] ?? '',
+      height: json['height'] ?? '',
+      mass: json['mass'] ?? '',
+      birthYear: json['birth_year'] ?? '',
     );
   }
 }
