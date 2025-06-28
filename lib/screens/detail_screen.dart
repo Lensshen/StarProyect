@@ -23,10 +23,8 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   }
 
   Future<void> _verificarFavorito() async {
-    if (FirebaseAuth.instance.currentUser != null) {
-      final esFav = await FavoriteService().esFavorito(widget.character.name);
-      setState(() => _esFavorito = esFav);
-    }
+    final esFav = await FavoriteService().esFavorito(widget.character.name);
+    setState(() => _esFavorito = esFav);
   }
 
   Future<void> _alternarFavorito() async {
